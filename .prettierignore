@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# But not src/
+!src/
+!src/**/*
+
+# But not tests/
+!tests/
+!tests/**/*
