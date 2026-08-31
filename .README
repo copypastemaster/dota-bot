@@ -1,7 +1,2 @@
-### Node template starter pack
-- Express
-- Typescript
-- Prettier formatter
-- Sequelize
-- Docker
-- Postgres
+# Dota discord bot
+- Fetches user data via commands

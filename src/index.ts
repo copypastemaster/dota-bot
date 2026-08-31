@@ -1,12 +1,7 @@
+import { OPEN_DOTA_BASE_URL, PORT } from "./utils/envs.js";
 import express, { Request, response, Response } from "express";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 const app = express();
-const PORT = process.env.port || 3000;
-
-const BASE_URL = process.env.OPEN_DOTA_BASE_URL || "";
 const ACC_ID = "344647611"
 
 app.get("/", (req: Request, res: Response) => {
@@ -14,10 +9,10 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.get("/test", async (req: Request, res: Response) => {
-	console.log("BASE_URL:", BASE_URL);
+	console.log("BASE_URL:", OPEN_DOTA_BASE_URL);
 
 	try {
-		const data = await fetch(`${BASE_URL}players/${ACC_ID}/matches`);
+		const data = await fetch(`${OPEN_DOTA_BASE_URL}players/${ACC_ID}/matches`);
 
 		if (!data.ok) {
 			res.status(data.status).json({
