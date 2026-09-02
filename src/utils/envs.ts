@@ -5,11 +5,21 @@ dotenv.config()
 const OPEN_DOTA_BASE_URL = process.env.OPEN_DOTA_BASE_URL || "";
 
 /** SECONDS  */
+
+// Requests per minute
 const SHORT_TERM_RATE_LIMIT = process.env.SHORT_TERM_RATE_LIMIT || "";
+
+// Requests per day
 const DAILY_RATE_LIMIT = process.env.DAILY_RATE_LIMIT || "";
+
+// Requests per month
 const MONTHLY_RATE_LIMIT = process.env.MONTHLY_RATE_LIMIT || "";
 
 const PORT = process.env.PORT || 3000;
+const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN;
+const DISCORD_BOT_CLIENT_ID_OAUTH = process.env.DISCORD_BOT_CLIENT_ID_OAUTH;
+const DISCORD_BOT_CLIENT_SECRET_OAUTH = process.env.DISCORD_BOT_CLIENT_ID_OAUTH;
+const DISCORD_GENERATED_OAUTH_URL = process.env.DISCORD_GENERATED_OAUTH_URL;
 
 export {
     OPEN_DOTA_BASE_URL,
@@ -17,4 +27,8 @@ export {
     DAILY_RATE_LIMIT,
     MONTHLY_RATE_LIMIT,
     PORT,
+    DISCORD_BOT_TOKEN,
+    DISCORD_BOT_CLIENT_ID_OAUTH,
+    DISCORD_BOT_CLIENT_SECRET_OAUTH,
+    DISCORD_GENERATED_OAUTH_URL,
 }
