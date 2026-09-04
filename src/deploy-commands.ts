@@ -41,7 +41,7 @@ const rest = new REST().setToken(DISCORD_BOT_TOKEN);
     try {
         console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
-        const data = await rest.put(Routes.applicationGuildCommands(DISCORD_BOT_APPLICATION_ID, TESTBOT_SERVER_ID), {
+        const data = await rest.put(Routes.applicationGuildCommands(DISCORD_BOT_APPLICATION_ID, LINKLE_SERVER_ID), {
             body: commands
         })
     } catch (err: unknown) {
