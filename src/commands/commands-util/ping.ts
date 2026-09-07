@@ -21,7 +21,7 @@ const builder = {
 		const reason = interaction.options.getString("reason") ?? "No reason provided";
 
 		await interaction.reply(
-			`Target: ${targetUser?.tag}\nReason: ${reason}`
+			`Target kita kosa: ${targetUser?.displayName}\nReason: ${reason}`
 		);
 	},
 };

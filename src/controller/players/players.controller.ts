@@ -29,8 +29,9 @@ export default async function getPlayer(accId: number | string) {
 		);
 
 		if (!data.ok) {
-			console.error("No data available.")
-			return;
+			const body = await data.text().catch(() => "");
+			console.error(`OpenDota error: ${data.status} ${data.statusText} - ${body}`);
+			return [];
 		}
 
 		const bufferedData = await data.json();

@@ -12,22 +12,35 @@ const builder = {
                 .setRequired(true)
         ),
     async execute(interaction: ChatInputCommandInteraction) {
-        const targetPlayer = interaction.options.getString("dotaid")
+        await interaction.deferReply();
 
-        if (!targetPlayer) return; 
+        const targetPlayer = interaction.options.getString("dotaid")
+        if (!targetPlayer) {
+            await interaction.editReply("You need to provide a dota ID.");
+            return;
+        }
         
-        const [testPlayer] = await getPlayer(targetPlayer);
+        const matches = await getPlayer(targetPlayer);
+        
+        if (!matches || matches.length === 0) {
+            await interaction.editReply("Couldn't find any matches for that account, or bad id");
+            return;
+        };
+
+        const [testPlayer] = matches;
         const isRadiant = testPlayer.player_slot < 128;
         const didWin = testPlayer.radiant_win === isRadiant;
 
-        if (!didWin) {
-            await interaction.reply("Bitch ass noob");
-            return;
-        }
-
-        await interaction.reply("Congrats dog.")
-    },
+        await interaction.editReply(didWin ? 
+                "Congrats dog." 
+                : "Bitch ass dog"
+            );
+        },
 }
+
+// Calculates the winrate based on 20 recent matches
+function calculateWinRate() {};
+
 
 export {
     builder
